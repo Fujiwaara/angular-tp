@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Accueil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" routerLinkActive="active" *ngIf="!isAuth">
+                    <a class="nav-link" routerLink="/auth">Authentification</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+                    <a class="nav-link" routerLink="/appareils">Appareils</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+                    <a class="nav-link" routerLink="/edit">Enregistrement d'un appareil</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+                    <a class="nav-link" routerLink="/users">Liste des utilisateurs</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" *ngIf="!isAuth">
+                    <a class="nav-link" routerLink="/new-user">S'enregistrer</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+                    <a class="nav-link" routerLink="/auth" (click)="onSignOut()">Déconnexion</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <p>Vous êtes connecté depuis {{ secondes }} secondes !</p>
+            </span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

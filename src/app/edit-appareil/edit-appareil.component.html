@@ -1,0 +1,20 @@
+<h2>Enregistrement d'un appareil</h2>
+<div class="row">
+    <div class="col-sm8 col-sm-offeset-2">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="name">Nom de l'appareil</label>
+                <input type="text" class="form-control" id="name" name="name" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="status">État de l'appareil</label>
+                <select class="form-control" id="status" name="status" [ngModel]="defaultOnOff">
+                    <option value="allumé">Allumé</option>
+                    <option value="éteint">Éteint</option>
+                </select>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Enregistrer</button>
+        </form>
+    </div>
+</div>
